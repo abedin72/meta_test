@@ -1,0 +1,32 @@
+{% extends 'MetaModel/base.html' %}
+
+{%block maindiv%} 
+
+          <form action="" method="post"  enctype="multipart/form-data">
+
+            {% csrf_token %}
+            
+           <div class="mainborder"> 
+
+
+                <div class="col-md-8">     
+                  <p >نام: {{formData.first_name}}</p> 
+                  <p >نام خانوادگی: {{formData.last_name}}</p>    
+                  <p >email:{{formData.email}}</p>  
+                  <p >یوزر: {{formData.username}}</p>  
+                  <p >پسورد: {{formData.password}}</p>
+                  {% comment %} {{formData.ProfileImage}} {% endcomment %}
+                </div>
+              
+
+      
+              <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">save</button></b></b></b></b></b></b></b></b></b>
+              </div>
+            
+
+             </div>
+          </form>
+  
+
+    {% endblock %}

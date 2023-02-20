@@ -1,0 +1,25 @@
+{% extends 'MetaModel/base.html' %}
+
+{%block maindiv%} 
+
+{% comment %} <form action="" method="POST" >
+  {% csrf_token %}
+  {{profileForm}}
+  <button type="submit" class="btn btn-primary btn-block btn-flat">SAVE</button>
+</form> {% endcomment %}
+<div class="row">
+  <div class="col-md-8">     
+    <p >نام: {{profile.user.get_full_name}}</p> 
+    <p >نام: {{profile.Full_Name}}</p>    
+    <p >email: {{profile.Email }}</p>   
+  </div><!-- /.col -->
+
+<div class="col-md-4">      
+    <img src="{{profile.ProfileImage.url}} ">
+  </div><!-- /.col -->
+
+</div>
+ 
+
+
+{% endblock %}

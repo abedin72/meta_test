@@ -1,0 +1,228 @@
+
+{% extends 'MetaModel/base.html' %}
+{%block maindiv%} 
+{% load static %}
+        <!-- Main content -->
+        <section class="content">
+
+          <!--------------------------Main code land---------------------------->
+        
+          <!--------------------------3D model---------------------------------->
+                     <div  id="canvas" style="width:innerWidth;height:innerWidth ">
+         
+                         <!--======================================-->
+                         <!--======================================-->
+        
+                         <!--========== Mouse Click ===============-->
+                         <script  src = "{%static 'MetaModel/build/three.js'%}"></script> 
+                         <script src="{%static 'MetaModel/build/threex.domevents.js'%}"></script>
+                         <!--========== Mouse Click ===============-->
+        
+                             <script type="module">
+                             import * as THREE from "/static/MetaModel/build/three.module.js";
+                             import { OrbitControls } from "/static/MetaModel/build/OrbitControls.js";
+                             import { GLTFLoader } from "/static/MetaModel/build/GLTFLoader.js";
+                             import { RGBELoader } from "/static/MetaModel/build/RGBELoader.js";
+                            
+                              var camera, scene, renderer;
+              
+                              var gltf_loader = new GLTFLoader();
+                              //<!--mouse click-->
+                              let plane;
+                              let pointer, raycaster, isShiftDown = false;
+                              let cubeGeo, cubeMaterial;
+                              const objects = [];
+                              //<!--mouse click-->
+                              var car;
+                             
+                              
+                              init();
+                              loop();
+        
+                              function init() {
+        
+                                const container = document.getElementById( 'canvas' );
+                               // document.body.appendChild(container);
+                                camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.window.innerWidth,.1,10000);
+                                camera.position.set(50, 50, 0);
+                                camera.lookAt( 0,0,0 );
+                                scene = new THREE.Scene();
+                                scene.background = new THREE.Color(0x000000);
+        
+                                renderer = new THREE.WebGLRenderer({ antialias: true });
+                                renderer.setPixelRatio(window.devicePixelRatio);
+                                renderer.setSize(window.innerWidth, window.innerHeight);
+                                renderer.outputEncoding = THREE.sRGBEncoding;
+                                container.appendChild(renderer.domElement);
+        
+                                // VIEW CONTROLS
+                                const controls = new OrbitControls(camera, renderer.domElement);
+                                controls.addEventListener("change", render);
+                                controls.minDistance = 0.0000001;
+                                controls.maxDistance = 150;
+                                controls.target.set(0, 0.5, 0);
+                                controls.mouseButtons = {
+                                  LEFT: THREE.MOUSE.ROTATE,
+                                  MIDDLE: THREE.MOUSE.DOLLY,
+                                  RIGHT: THREE.MOUSE.ROTATE,
+                                };
+                                
+                                ////////////// sky box  //https://opengameart.org/content/sky-box-sunny-day
+                                const geometry2 = new THREE.BoxGeometry( 1500, 1500, 1500 );
+                                const material2f = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Front.bmp' ),side:THREE.DoubleSide } );
+                                const material2b = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Back.bmp' ),side:THREE.DoubleSide } );
+                                const material2u = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Top.bmp' ),side:THREE.DoubleSide } );
+                                const material2d = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Bottom.bmp' ),side:THREE.DoubleSide } );
+                                const material2r = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Right.bmp' ),side:THREE.DoubleSide } );
+                                const material2l = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Left.bmp' ),side:THREE.DoubleSide } );
+                                const cube2 = new THREE.Mesh( geometry2, [material2r,material2l,material2u,material2d,material2f,material2b]);
+                                cube2.position.set(0, 0, 0);
+                                scene.add( cube2 );
+                              
+                              //light
+                              var light = new THREE.PointLight(0xffffff, 2);
+                                light.position.set(100, 100, 100);
+                                scene.add(light);
+        
+                               
+                            //load 3Dmodel barsa
+                            var barsa
+                            var model4 = "/static/MetaModel/gltf/hospital/01-barsa.gltf";
+                                  gltf_loader.load(model4, function (gltf) {
+                                  barsa = gltf.scene;
+                                  gltf.scene.scale.set(2,2,2);
+                                  gltf.scene.position.set(0,0,0);
+                                  scene.add(barsa);
+                                  render();
+                                });
+        
+                            //----------------------------land object------------------------//
+                                    //land1----------------
+                                       // box
+                                    const geometry_mb1 = new THREE.BoxGeometry( 1, 0.02, 1 );
+                                    const material_mb1 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                                    const cube_mb1 = new THREE.Mesh( geometry_mb1, material_mb1 );
+                                    cube_mb1.position.set(0, 0,0);
+                                    scene.add( cube_mb1 );
+        
+                                    const geometry_ms1= new THREE.SphereGeometry( 15, 32, 16  );
+                                    const material_ms1 = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Front.bmp' ),side:THREE.DoubleSide} );
+                                       //const material_m = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                                    const sphere_ms1 = new THREE.Mesh( geometry_ms1, material_ms1 );
+                                    sphere_ms1.scale.set(0.006, 0.006, 0.006);
+                                    sphere_ms1.position.set(0,0.1,0);
+                                    scene.add( sphere_ms1 )
+        
+                                    //land2----------------
+                                    const geometry_mb2 = new THREE.BoxGeometry( 1, 0.02, 1 );
+                                    const material_mb2 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                                    const cube_mb2 = new THREE.Mesh( geometry_mb2, material_mb2 );
+                                    cube_mb2.position.set(2, 0,0);
+                                    scene.add( cube_mb2 );
+        
+                                    const geometry_ms2= new THREE.SphereGeometry( 15, 32, 16  );
+                                    const material_ms2 = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Front.bmp' ),side:THREE.DoubleSide} );
+                                       //const material_m = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                                    const sphere_ms2 = new THREE.Mesh( geometry_ms2, material_ms2 );
+                                    sphere_ms2.scale.set(0.006, 0.006, 0.006);
+                                    sphere_ms2.position.set(2,0.1,0);
+                                    scene.add( sphere_ms2 )
+        
+                               //----------------------------land object------------------------//
+        
+                                //-----------------------mouse click-------------------------//
+                                //var x = document.getElementById("myBtn");
+                                // addEventListener( 'pointerdown', onPointerDown );
+        
+                                // var domEvents	= new THREEx.DomEvents(camera, renderer.domElement)
+                                // domEvents.addEventListener(cube, 'click', function(event){
+                                // alert("sas,;ldask")
+                                //  }, false)
+        
+                                var domEvents1	= new THREEx.DomEvents(camera, renderer.domElement)
+                                domEvents1.addEventListener(sphere_ms1, 'click',function() { onPointerDown(false,"ABC",1111111);})
+        
+                                // var domEvents2	= new THREEx.DomEvents(camera, renderer.domElement)
+                                // domEvents2.addEventListener(sphere_ms2, 'click',onPointerDown , false)
+                                var domEvents2	= new THREEx.DomEvents(camera, renderer.domElement)
+                                domEvents2.addEventListener(sphere_ms2, 'click',function() { onPointerDown(false,"DEF",22222222);} )
+        
+                               //-----------------------mouse click-------------------------//
+        
+                               controls.update();
+                               window.addEventListener("resize", onWindowResize, false);
+        
+                                }
+        
+                                                    //functions
+                            //-----------------------mouse click-------------------------//
+                                  function onPointerDown( event ,SECTION_CODE,section_address ) {
+        
+                                  // var divElement = document.createElement("div");
+                                  // divElement.style.width = "200px";
+                                  // divElement.style.height = "200px";
+                                  // divElement.style.background = "red";
+                                  // divElement.style.color = "white";
+                                 
+        
+                                  var divElement = document.getElementById("buy_sell");
+                                  divElement.style.width = "200px";
+                                  divElement.style.height = "200px";
+                                  divElement.style.background = "red";
+                                  divElement.style.color = "white";
+        
+                                  document.getElementById("land_add").textContent="land address:"+SECTION_CODE+section_address;
+                                  document.getElementById("land_buy").style.display="inline";
+                                  document.getElementById("land_sell").style.display="inline";
+        
+                                  // // // Adding a paragraph to it
+                                  // var paragraph = document.createElement("P");
+                                  // var text = document.createTextNode(SECTION_CODE + section_address);
+                                  // paragraph.appendChild(text );
+                                  // divElement.appendChild(paragraph);
+                              
+                                  // // Adding a button, buy!
+                                  // var button = document.createElement("Button");
+                                  // var textForButton = document.createTextNode("Buy");
+                                  // button.appendChild(textForButton);
+                                  // button.addEventListener("click", function(){ alert("Hi!"); });
+                                  // divElement.appendChild(button);
+        
+                                  // // Adding a button, sell!
+                                  // var button1 = document.createElement("Button");
+                                  // var textForButton1 = document.createTextNode("sell");
+                                  // button1.appendChild(textForButton1);
+                                  // button1.addEventListener("click", function(){ alert("wwwwww!"); });
+                                  // divElement.appendChild(button1);
+        
+        //                          document.getElementById("buy_sell").appendChild(divElement);
+        
+                                }
+                                //-----------------------mouse click-------------------------//
+                                                            
+                        function onWindowResize() {
+                                camera.aspect = window.innerWidth / window.innerHeight;
+                                camera.updateProjectionMatrix();
+                                renderer.setSize(window.innerWidth, window.innerHeight);
+                                render();
+                              }
+        
+                              function render() {
+                                renderer.render(scene, camera);
+                              }
+        
+                              function loop() {
+                                requestAnimationFrame(loop);
+                              // car.rotation.y += -0.003;        
+                                renderer.render(scene, camera);
+                              }
+                            </script> 
+                              <!--======================================-->
+                              <!--======================================-->                                                                    
+                          </div><!-- /.row (main row) -->
+        
+                <!--------------------------3D model---------------------------------->
+                      </section><!-- /.content -->
+        
+            
+{% endblock %}

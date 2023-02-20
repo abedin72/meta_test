@@ -1,0 +1,724 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    
+    <head>
+    <meta charset="UTF-8">
+    <title>Dr.Token | Metahealth</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.2 -->
+    <link href="{%static 'MetaModel/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />    
+    <!-- FontAwesome 4.3.0 -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons 2.0.0 -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <!-- Theme style -->
+    <link href="{%static 'MetaModel/dist/css/AdminLTE.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="{%static 'MetaModel/dist/css/skins/_all-skins.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- iCheck -->
+    <link href="{%static 'MetaModel/plugins/iCheck/flat/blue.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="{%static 'MetaModel/plugins/morris/morris.css' %}" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="{%static 'MetaModel/plugins/jvectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Date Picker -->
+    <link href="{%static 'MetaModel/plugins/datepicker/datepicker3.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Daterange picker -->
+    <link href="{%static 'MetaModel/plugins/daterangepicker/daterangepicker-bs3.css' %}" rel="stylesheet" type="text/css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link href="{%static 'MetaModel/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css' %}" rel="stylesheet" type="text/css" />
+    
+  </head>
+    
+
+  <body class="skin-blue">
+
+    <div class="wrapper">
+        
+      <header class="main-header">
+        <!-- Logo -->
+        <a class="logo"><b>Admin</b>LTE</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 4 messages</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                          </div>
+                          <h4>
+                            Support Team
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li><!-- end message -->
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="/static/MetaModel/dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            AdminLTE Design Team
+                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="/static/MetaModel/dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Developers
+                            <small><i class="fa fa-clock-o"></i> Today</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Sales Department
+                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="/static/MetaModel/dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Reviewers
+                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+              </li>
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 10 notifications</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-red"></i> 5 new members joined
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-user text-red"></i> You changed your username
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
+              <!-- Tasks: style can be found in dropdown.less -->
+              <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 tasks</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Design some buttons
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Create a nice theme
+                            <small class="pull-right">40%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">40% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Some task I need to do
+                            <small class="pull-right">60%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">60% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Make beautiful transitions
+                            <small class="pull-right">80%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">80% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a href="#">View all tasks</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="/static/MetaModel/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="/static/MetaModel/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+        
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="/static/MetaModel/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+              <p>Alexander Pierce</p>
+
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <!-- search form -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search..."/>
+              <span class="input-group-btn">
+                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+
+              <li class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>Metavers</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'MetaModel:general' %}"><i class="fa fa-circle-o"></i> General</a></li>
+                <li><a href="{% url 'MetaModel:metahealth' %}"><i class="fa fa-circle-o"></i> metahealth</a></li>
+                <li><a href="{% url 'MetaModel:marketing' %}"><i class="fa fa-circle-o"></i> marketing</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-table"></i> <span>shop</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'MetaModel:object' %}"><i class="fa fa-circle-o"></i>object</a></li>
+
+              </ul>
+            </li>
+                 
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i> <span>NFT</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'MetaModel:nft_a' %}"><i class="fa fa-circle-o"></i> NFT_a</a></li>
+                <li><a href="{% url 'MetaModel:nft_b' %}"><i class="fa fa-circle-o"></i> NFT_b</a></li>
+                <li><a href="{% url 'MetaModel:nft_c' %}"><i class="fa fa-circle-o"></i> NFT_c</a></li>
+
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-share"></i> <span>LAND</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+               <li> <a href="{% url 'MetaModel:map' %}"><i class="fa fa-circle-o"></i> 2D VIEW</a></li>
+                <li><a href="{% url 'MetaModel:three_d' %}"><i class="fa fa-circle-o"></i> 3D VIEW </a></li>
+               <li> <a href="{% url 'MetaModel:meta' %}"><i class="fa fa-circle-o"></i> Metavers </a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-pie-chart"></i>
+                <span>Charts</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{% url 'MetaModel:chart_a' %}"><i class="fa fa-circle-o"></i> chart_a</a></li>
+                <li><a href="{% url 'MetaModel:chart_b' %}"><i class="fa fa-circle-o"></i> chart_b</a></li>
+                <li><a href="{% url 'MetaModel:chart_c' %}"><i class="fa fa-circle-o"></i> chart_c</a></li>
+         
+              </ul>
+            </li>
+            <li><a href="{% url 'MetaModel:white_paper' %}"><i class="fa fa-book"></i> White paper</a></li>
+
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+
+        <div id="buy_sell"  >
+
+        <p id="land_add"></p>
+        <button id="land_buy" style="display: none">buy</button>
+        <button id="land_sell" style="display: none">sell</button>
+
+        </div>
+
+
+      </aside>
+        <!-- Left side column. contains the logo and sidebar -->
+
+       <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        
+        <!-- Main content -->
+        <section class="content">
+{% comment %}             
+          <!-- Small boxes (Stat box) -->
+              <!--باکس های کوچک بالا شروع-->
+          <div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>150</h3>
+                  <p>New Orders</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+                  <p>Bounce Rate</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>44</h3>
+                  <p>User Registrations</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>65</h3>
+                  <p>Unique Visitors</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+          </div><!-- /.row -->
+          <!--باکس های کوچک بالا اتمام--> {% endcomment %}
+
+
+  <!--------------------------Main code land---------------------------->
+
+  <!--------------------------3D model---------------------------------->
+             <div  id="canvas" style="width:innerWidth;height:innerWidth">
+ 
+                 <!--======================================-->
+                 <!--======================================-->
+
+                 <!--========== Mouse Click ===============-->
+                 <script  src = "{%static 'MetaModel/build/three.js'%}"></script> 
+                 <script src="{%static 'MetaModel/build/threex.domevents.js'%}"></script>
+                 <!--========== Mouse Click ===============-->
+
+                     <script type="module">
+                     import * as THREE from "/static/MetaModel/build/three.module.js";
+                     import { OrbitControls } from "/static/MetaModel/build/OrbitControls.js";
+                     import { GLTFLoader } from "/static/MetaModel/build/GLTFLoader.js";
+                     import { RGBELoader } from "/static/MetaModel/build/RGBELoader.js";
+                    
+                      var camera, scene, renderer;
+      
+                      var gltf_loader = new GLTFLoader();
+                      //<!--mouse click-->
+                      let plane;
+                      let pointer, raycaster, isShiftDown = false;
+                      let cubeGeo, cubeMaterial;
+                      const objects = [];
+                      //<!--mouse click-->
+                      var car;
+                     
+                      
+                      init();
+                      loop();
+
+                      function init() {
+
+                        const container = document.getElementById( 'canvas' );
+                       // document.body.appendChild(container);
+                        camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.window.innerWidth,.1,10000);
+                        camera.position.set(50, 50, 0);
+                        camera.lookAt( 0,0,0 );
+                        scene = new THREE.Scene();
+                        scene.background = new THREE.Color(0x000000);
+
+                        renderer = new THREE.WebGLRenderer({ antialias: true });
+                        renderer.setPixelRatio(window.devicePixelRatio);
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                        renderer.outputEncoding = THREE.sRGBEncoding;
+                        container.appendChild(renderer.domElement);
+
+                        // VIEW CONTROLS
+                        const controls = new OrbitControls(camera, renderer.domElement);
+                        controls.addEventListener("change", render);
+                        controls.minDistance = 0.0000001;
+                        controls.maxDistance = 150;
+                        controls.target.set(0, 0.5, 0);
+                        controls.mouseButtons = {
+                          LEFT: THREE.MOUSE.ROTATE,
+                          MIDDLE: THREE.MOUSE.DOLLY,
+                          RIGHT: THREE.MOUSE.ROTATE,
+                        };
+                        
+                        ////////////// sky box  //https://opengameart.org/content/sky-box-sunny-day
+                        const geometry2 = new THREE.BoxGeometry( 1500, 1500, 1500 );
+                        const material2f = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Front.bmp' ),side:THREE.DoubleSide } );
+                        const material2b = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Back.bmp' ),side:THREE.DoubleSide } );
+                        const material2u = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Top.bmp' ),side:THREE.DoubleSide } );
+                        const material2d = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Bottom.bmp' ),side:THREE.DoubleSide } );
+                        const material2r = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Right.bmp' ),side:THREE.DoubleSide } );
+                        const material2l = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Left.bmp' ),side:THREE.DoubleSide } );
+                        const cube2 = new THREE.Mesh( geometry2, [material2r,material2l,material2u,material2d,material2f,material2b]);
+                        cube2.position.set(0, 0, 0);
+                        scene.add( cube2 );
+                      
+                      //light
+                      var light = new THREE.PointLight(0xffffff, 2);
+                        light.position.set(100, 100, 100);
+                        scene.add(light);
+
+                       
+                    //load 3Dmodel barsa
+                    var barsa
+                    var model4 = "/static/MetaModel/gltf/hospital/01-barsa.gltf";
+                          gltf_loader.load(model4, function (gltf) {
+                          barsa = gltf.scene;
+                          gltf.scene.scale.set(2,2,2);
+                          gltf.scene.position.set(0,0,0);
+                          scene.add(barsa);
+                          render();
+                        });
+
+                    //----------------------------land object------------------------//
+                            //land1----------------
+                               // box
+                            const geometry_mb1 = new THREE.BoxGeometry( 1, 0.02, 1 );
+                            const material_mb1 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                            const cube_mb1 = new THREE.Mesh( geometry_mb1, material_mb1 );
+                            cube_mb1.position.set(0, 0,0);
+                            scene.add( cube_mb1 );
+
+                            const geometry_ms1= new THREE.SphereGeometry( 15, 32, 16  );
+                            const material_ms1 = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Front.bmp' ),side:THREE.DoubleSide} );
+                               //const material_m = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                            const sphere_ms1 = new THREE.Mesh( geometry_ms1, material_ms1 );
+                            sphere_ms1.scale.set(0.006, 0.006, 0.006);
+                            sphere_ms1.position.set(0,0.1,0);
+                            scene.add( sphere_ms1 )
+
+                            //land2----------------
+                            const geometry_mb2 = new THREE.BoxGeometry( 1, 0.02, 1 );
+                            const material_mb2 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                            const cube_mb2 = new THREE.Mesh( geometry_mb2, material_mb2 );
+                            cube_mb2.position.set(2, 0,0);
+                            scene.add( cube_mb2 );
+
+                            const geometry_ms2= new THREE.SphereGeometry( 15, 32, 16  );
+                            const material_ms2 = new THREE.MeshBasicMaterial( {  map: new THREE.TextureLoader().load( '/static/MetaModel/img/skybox/Daylight_Box_Front.bmp' ),side:THREE.DoubleSide} );
+                               //const material_m = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                            const sphere_ms2 = new THREE.Mesh( geometry_ms2, material_ms2 );
+                            sphere_ms2.scale.set(0.006, 0.006, 0.006);
+                            sphere_ms2.position.set(2,0.1,0);
+                            scene.add( sphere_ms2 )
+
+                       //----------------------------land object------------------------//
+
+                        //-----------------------mouse click-------------------------//
+                        //var x = document.getElementById("myBtn");
+                        // addEventListener( 'pointerdown', onPointerDown );
+
+                        // var domEvents	= new THREEx.DomEvents(camera, renderer.domElement)
+                        // domEvents.addEventListener(cube, 'click', function(event){
+                        // alert("sas,;ldask")
+                        //  }, false)
+
+                        var domEvents1	= new THREEx.DomEvents(camera, renderer.domElement)
+                        domEvents1.addEventListener(sphere_ms1, 'click',function() { onPointerDown(false,"ABC",1111111);})
+
+                        // var domEvents2	= new THREEx.DomEvents(camera, renderer.domElement)
+                        // domEvents2.addEventListener(sphere_ms2, 'click',onPointerDown , false)
+                        var domEvents2	= new THREEx.DomEvents(camera, renderer.domElement)
+                        domEvents2.addEventListener(sphere_ms2, 'click',function() { onPointerDown(false,"DEF",22222222);} )
+
+                       //-----------------------mouse click-------------------------//
+
+                       controls.update();
+                       window.addEventListener("resize", onWindowResize, false);
+
+                        }
+
+                                            //functions
+                    //-----------------------mouse click-------------------------//
+                          function onPointerDown( event ,SECTION_CODE,section_address ) {
+
+                          // var divElement = document.createElement("div");
+                          // divElement.style.width = "200px";
+                          // divElement.style.height = "200px";
+                          // divElement.style.background = "red";
+                          // divElement.style.color = "white";
+                         
+
+                          var divElement = document.getElementById("buy_sell");
+                          divElement.style.width = "200px";
+                          divElement.style.height = "200px";
+                          divElement.style.background = "red";
+                          divElement.style.color = "white";
+
+                          document.getElementById("land_add").textContent="land address:"+SECTION_CODE+section_address;
+                          document.getElementById("land_buy").style.display="inline";
+                          document.getElementById("land_sell").style.display="inline";
+
+                          // // // Adding a paragraph to it
+                          // var paragraph = document.createElement("P");
+                          // var text = document.createTextNode(SECTION_CODE + section_address);
+                          // paragraph.appendChild(text );
+                          // divElement.appendChild(paragraph);
+                      
+                          // // Adding a button, buy!
+                          // var button = document.createElement("Button");
+                          // var textForButton = document.createTextNode("Buy");
+                          // button.appendChild(textForButton);
+                          // button.addEventListener("click", function(){ alert("Hi!"); });
+                          // divElement.appendChild(button);
+
+                          // // Adding a button, sell!
+                          // var button1 = document.createElement("Button");
+                          // var textForButton1 = document.createTextNode("sell");
+                          // button1.appendChild(textForButton1);
+                          // button1.addEventListener("click", function(){ alert("wwwwww!"); });
+                          // divElement.appendChild(button1);
+
+//                          document.getElementById("buy_sell").appendChild(divElement);
+
+                        }
+                        //-----------------------mouse click-------------------------//
+                                                    
+                function onWindowResize() {
+                        camera.aspect = window.innerWidth / window.innerHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                        render();
+                      }
+
+                      function render() {
+                        renderer.render(scene, camera);
+                      }
+
+                      function loop() {
+                        requestAnimationFrame(loop);
+                      // car.rotation.y += -0.003;        
+                        renderer.render(scene, camera);
+                      }
+                    </script> 
+                      <!--======================================-->
+                      <!--======================================-->                                                                    
+                  </div><!-- /.row (main row) -->
+
+        <!--------------------------3D model---------------------------------->
+              </section><!-- /.content -->
+                
+            </div><!-- /.content-wrapper -->
+              
+            <footer class="main-footer">
+              <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
+              </div>
+              <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+            </footer> 
+              
+            </div><!-- ./wrapper -->
+            
+        
+            <!-- jQuery 2.1.3 -->
+          <script src="{%static 'MetaModel/plugins/jQuery/jQuery-2.1.3.min.js' %}"></script>
+          <!-- jQuery UI 1.11.2 -->
+          <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
+          <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+          <script>
+            $.widget.bridge('uibutton', $.ui.button);
+          </script>
+          <!-- Bootstrap 3.3.2 JS -->
+          <script src="{%static 'MetaModel/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>    
+          <!-- Morris.js charts -->
+          <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+          <script src="{%static 'MetaModel/plugins/morris/morris.min.js' %}" type="text/javascript"></script>
+          <!-- Sparkline -->
+          <script src="{%static 'MetaModel/plugins/sparkline/jquery.sparkline.min.js' %}" type="text/javascript"></script>
+          <!-- jvectorm{%static 'MetaModel/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+          <script src="{%static 'MetaModel/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+          <!- jQuery Knob Chart -->
+          <script src="{%static 'MetaModel/plugins/knob/jquery.knob.js' %}" type="text/javascript"></script>
+          <!-- daterangepicker -->
+          <script src="{%static 'MetaModel/plugins/daterangepicker/daterangepicker.js' %}" type="text/javascript"></script>
+          <!-- datepicker -->
+          <script src="{%static 'MetaModel/plugins/datepicker/bootstrap-datepicker.js' %}" type="text/javascript"></script>
+          <!-- Bootstrap WYSIHTML5 -->
+          <script src="{%static 'MetaModel/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js' %}" type="text/javascript"></script>
+          <!-- iCheck -->
+          <script src="{%static 'MetaModel/plugins/iCheck/icheck.min.js' %}" type="text/javascript"></script>
+          <!-- Slimscroll -->
+          <script src="{%static 'MetaModel/plugins/slimScroll/jquery.slimscroll.min.js' %}" type="text/javascript"></script>
+          <!-- FastClick -->
+          <script src="{%static 'MetaModel/plugins/fastclick/fastclick.min.js' %}"></script>
+          <!-- AdminLTE App -->
+          <script src="{%static 'MetaModel/dist/js/app.min.js' %}" type="text/javascript"></script>
+          <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+          <script src="{%static 'MetaModel/dist/js/pages/dashboard.js' %}" type="text/javascript"></script>
+          <!-- AdminLTE for demo purposes -->
+          <script src="{%static 'MetaModel/dist/js/demo.js' %}" type="text/javascript"></script>
+  </body>
+</html>
